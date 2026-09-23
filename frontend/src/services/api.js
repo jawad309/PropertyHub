@@ -1,4 +1,4 @@
-const API_URL = "http://localhost:5000/api";
+const API_URL = "https://propertyhub-production-ceea.up.railway.app/api";
 
 // Logged-in user ka token lena
 const getAuthHeaders = () => {
