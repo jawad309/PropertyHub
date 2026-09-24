@@ -1,6 +1,6 @@
-const API_URL = "https://propertyhub-production-ceea.up.railway.app/api";
+const API_URL = "http://localhost:5000/api";
 
-// Logged-in user ka token lena
+
 const getAuthHeaders = () => {
   const token = localStorage.getItem("token");
 
@@ -11,7 +11,7 @@ const getAuthHeaders = () => {
     : {};
 };
 
-// GET ALL PROPERTIES
+
 export const getProperties = async () => {
   const response = await fetch(`${API_URL}/properties`);
 
@@ -22,7 +22,7 @@ export const getProperties = async () => {
   return response.json();
 };
 
-// GET MY PROPERTIES
+
 export const getMyProperties = async () => {
   const response = await fetch(`${API_URL}/properties/my`, {
     headers: {
@@ -37,7 +37,6 @@ export const getMyProperties = async () => {
   return response.json();
 };
 
-// GET SINGLE PROPERTY
 export const getProperty = async (id) => {
   const response = await fetch(`${API_URL}/properties/${id}`);
 
@@ -48,7 +47,7 @@ export const getProperty = async (id) => {
   return response.json();
 };
 
-// CREATE PROPERTY
+
 export const createProperty = async (propertyData) => {
   const response = await fetch(`${API_URL}/properties`, {
     method: "POST",
@@ -66,7 +65,6 @@ export const createProperty = async (propertyData) => {
   return response.json();
 };
 
-// UPDATE PROPERTY
 export const updateProperty = async (id, propertyData) => {
   const response = await fetch(`${API_URL}/properties/${id}`, {
     method: "PUT",
@@ -84,7 +82,7 @@ export const updateProperty = async (id, propertyData) => {
   return response.json();
 };
 
-// DELETE PROPERTY
+
 export const deleteProperty = async (id) => {
   const response = await fetch(`${API_URL}/properties/${id}`, {
     method: "DELETE",
