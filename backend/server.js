@@ -26,8 +26,15 @@ app.get("/", (req, res) => {
 });
 
 // MongoDB Connection
+const mongoUri = process.env.MONGO_URI?.trim();
+
+if (!mongoUri) {
+  console.error("MongoDB connection failed: MONGO_URI is not configured.");
+  process.exit(1);
+}
+
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(mongoUri)
   .then(() => {
     console.log("MongoDB connected successfully ✅");
 
@@ -40,4 +47,5 @@ mongoose
   .catch((error) => {
     console.error("MongoDB connection failed ❌");
     console.error(error.message);
+    process.exit(1);
   });
