@@ -1,3 +1,4 @@
+```js
 const mongoose = require("mongoose");
 require("dotenv").config();
 
@@ -128,11 +129,11 @@ const properties = [
 
 async function seedAtlas() {
   try {
-    if (!process.env.ATLAS_URI) {
-      throw new Error("ATLAS_URI is missing from .env");
+    if (!process.env.MONGO_URI) {
+      throw new Error("MONGO_URI is missing");
     }
 
-    await mongoose.connect(process.env.ATLAS_URI);
+    await mongoose.connect(process.env.MONGO_URI);
 
     console.log("MongoDB Atlas connected successfully ✅");
 
@@ -156,3 +157,4 @@ async function seedAtlas() {
 }
 
 seedAtlas();
+```
