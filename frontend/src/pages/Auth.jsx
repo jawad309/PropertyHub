@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { API_URL } from "../config";
 
 function Auth() {
   const navigate = useNavigate();
@@ -52,10 +53,9 @@ function Auth() {
     setLoading(true);
 
     try {
-      const endpoint = isLogin
-        ? "http://localhost:5000/api/auth/login"
-        : "http://localhost:5000/api/auth/register";
-
+     const endpoint = isLogin
+  ? `${API_URL}/auth/login`
+  : `${API_URL}/auth/register`;
       const body = isLogin
         ? {
             email: formData.email,

@@ -1,5 +1,4 @@
-const API_URL = "https://propertyhub-production-ceea.up.railway.app/api";
-
+import { API_URL } from "../config";
 
 const getAuthHeaders = () => {
   const token = localStorage.getItem("token");
