@@ -1,372 +1,194 @@
 import { Link } from "react-router-dom";
 
+const features = [
+  {
+    icon: "⌕",
+    title: "Smart Property Search",
+    text: "Find properties by location, type and your preferences.",
+  },
+  {
+    icon: "⌂",
+    title: "Beautiful Properties",
+    text: "Explore houses, apartments and plots in one place.",
+  },
+  {
+    icon: "✓",
+    title: "Easy Management",
+    text: "Manage your property listings from your dashboard.",
+  },
+];
+
 function Home() {
   return (
     <div className="home-page">
-
       {/* HERO */}
-      <section className="hero">
-        <div className="container hero-content">
+      <section className="modern-hero">
+        <div className="hero-overlay"></div>
 
-          <div className="hero-text">
-            <div className="hero-badge">
-              <span>●</span>
-              PROPERTY DISCOVERY MADE SIMPLE
-            </div>
-
-            <h1>
-              Find a Place
-              <span> You'll Love.</span>
-            </h1>
-
-            <p>
-              Discover houses, apartments and plots in great locations.
-              Search smarter, explore confidently and manage your listings
-              with PropertyHub.
-            </p>
-
-            <div className="hero-buttons">
-              <Link
-                to="/properties"
-                className="primary-btn hero-main-btn"
-              >
-                Explore Properties
-                <span>→</span>
-              </Link>
-
-              <Link
-                to="/dashboard"
-                className="secondary-btn hero-secondary-btn"
-              >
-                List Your Property
-              </Link>
-            </div>
-
-            <div className="hero-trust">
-              <span>
-                <b>✓</b> Easy Search
-              </span>
-
-              <span>
-                <b>✓</b> Multiple Locations
-              </span>
-
-              <span>
-                <b>✓</b> Simple Management
-              </span>
-            </div>
+        <div className="modern-hero-content">
+          <div className="hero-pill">
+            <span className="live-dot"></span>
+            YOUR JOURNEY HOME STARTS HERE
           </div>
 
-          {/* HERO VISUAL */}
-          <div className="hero-visual">
+          <h1>
+            Find Your
+            <br />
+            <span>Perfect Place.</span>
+          </h1>
 
-            <div className="hero-main-card">
+          <p className="modern-hero-description">
+            Discover beautiful homes, modern apartments and amazing
+            properties. Your next chapter starts with PropertyHub.
+          </p>
 
-              <div className="hero-image-placeholder">
-                <div className="hero-house-icon">
-                  🏡
-                </div>
+          <div className="modern-hero-buttons">
+            <Link to="/properties" className="modern-primary-btn">
+              Explore Properties <span>↗</span>
+            </Link>
 
-                <span className="hero-image-label">
-                  PROPERTYHUB
+            <Link to="/about" className="modern-outline-btn">
+              Discover PropertyHub
+            </Link>
+          </div>
+
+          {/* SEARCH BOX */}
+          <form
+            className="hero-search-box"
+            onSubmit={(e) => {
+              e.preventDefault();
+
+              const query = e.currentTarget.elements.location.value.trim();
+
+              window.location.href = query
+                ? `/properties?search=${encodeURIComponent(query)}`
+                : "/properties";
+            }}
+          >
+            <div className="search-field">
+              <span className="search-field-icon">⌖</span>
+
+              <div>
+                <label htmlFor="hero-location">LOCATION</label>
+
+                <input
+                  id="hero-location"
+                  name="location"
+                  type="text"
+                  placeholder="Enter city or location"
+                />
+              </div>
+            </div>
+
+            <div className="search-divider"></div>
+
+            <div className="search-field">
+              <span className="search-field-icon">⌂</span>
+
+              <div>
+                <label>PROPERTY TYPE</label>
+                <span className="search-field-hint">
+                  Houses, apartments & plots
                 </span>
               </div>
-
-              <div className="hero-property-info">
-                <div>
-                  <span>FEATURED PROPERTY</span>
-
-                  <h3>
-                    Find Your New Home
-                  </h3>
-
-                  <p>
-                    Explore quality properties in your preferred location.
-                  </p>
-                </div>
-
-                <div className="hero-property-icon">
-                  →
-                </div>
-              </div>
-
             </div>
 
-            <div className="hero-floating-card hero-floating-top">
-              <span>🏠</span>
+            <button type="submit" className="hero-search-btn">
+              Search Properties <span>→</span>
+            </button>
+          </form>
 
-              <div>
-                <strong>Quality Listings</strong>
-                <small>Explore with confidence</small>
-              </div>
-            </div>
-
-            <div className="hero-floating-card hero-floating-bottom">
-              <div className="floating-check">
-                ✓
-              </div>
-
-              <div>
-                <strong>Easy Property Search</strong>
-                <small>Find what you need faster</small>
-              </div>
-            </div>
-
+          <div className="hero-bottom-note">
+            <span>✦</span> Discover. Explore. Find Your Place.
           </div>
-
         </div>
+
+        <div className="hero-side-label">PROPERTYHUB · REAL ESTATE</div>
       </section>
 
-      {/* STATS */}
-      <section className="stats-section">
-        <div className="container stats">
+      {/* INTRO STRIP */}
+      <section className="modern-intro">
+        <div>
+          <span className="intro-eyebrow">WELCOME TO PROPERTYHUB</span>
 
-          <div className="stat-item">
-            <span className="stat-icon">🏠</span>
-
-            <div>
-              <h2>500+</h2>
-              <p>Properties Listed</p>
-            </div>
-          </div>
-
-          <div className="stat-item">
-            <span className="stat-icon">👥</span>
-
-            <div>
-              <h2>200+</h2>
-              <p>Happy Clients</p>
-            </div>
-          </div>
-
-          <div className="stat-item">
-            <span className="stat-icon">📍</span>
-
-            <div>
-              <h2>50+</h2>
-              <p>Locations</p>
-            </div>
-          </div>
-
-          <div className="stat-item">
-            <span className="stat-icon">✓</span>
-
-            <div>
-              <h2>100+</h2>
-              <p>Verified Listings</p>
-            </div>
-          </div>
-
+          <h2>
+            A better way to find
+            <br />
+            <span>your next home.</span>
+          </h2>
         </div>
+
+        <p>
+          From your first search to exploring property details, PropertyHub
+          makes the property discovery experience simple, organized and
+          convenient.
+        </p>
+
+        <Link to="/properties" className="intro-link">
+          Explore all properties <span>↗</span>
+        </Link>
       </section>
 
       {/* FEATURES */}
-      <section className="section home-features">
-        <div className="container">
+      <section className="modern-features">
+        <div className="features-heading">
+          <div>
+            <span className="intro-eyebrow">THE PROPERTYHUB EXPERIENCE</span>
+            <h2>Everything, in one place.</h2>
+          </div>
 
-          <div className="section-heading">
-            <p>WHY PROPERTYHUB?</p>
+          <p>
+            Simple tools to help you explore and manage properties with ease.
+          </p>
+        </div>
+
+        <div className="modern-feature-grid">
+          {features.map((feature, index) => (
+            <article className="modern-feature-card" key={feature.title}>
+              <div className="feature-card-top">
+                <span className="modern-feature-icon">{feature.icon}</span>
+                <span className="modern-feature-number">
+                  0{index + 1}
+                </span>
+              </div>
+
+              <h3>{feature.title}</h3>
+
+              <p>{feature.text}</p>
+
+              <Link to="/properties" className="feature-card-link">
+                Explore more <span>↗</span>
+              </Link>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      {/* IMAGE CTA */}
+      <section className="modern-cta-section">
+        <div className="modern-cta">
+          <div className="modern-cta-image"></div>
+
+          <div className="modern-cta-content">
+            <span className="intro-eyebrow">YOUR NEXT CHAPTER</span>
 
             <h2>
-              Everything You Need in One Place
+              Somewhere
+              <br />
+              <span>you belong.</span>
             </h2>
 
             <p>
-              PropertyHub brings property discovery and listing management
-              together in a simple and convenient platform.
+              The right property is waiting to be discovered. Start exploring
+              today and take the next step towards your ideal place.
             </p>
-          </div>
 
-          <div className="features">
-
-            <div className="feature-card">
-              <div className="feature-icon">
-                🔍
-              </div>
-
-              <div className="feature-number">
-                01
-              </div>
-
-              <h3>
-                Easy Search
-              </h3>
-
-              <p>
-                Quickly search and filter properties according to your
-                preferred location, type and requirements.
-              </p>
-
-              <Link to="/properties">
-                Search Properties →
-              </Link>
-            </div>
-
-            <div className="feature-card">
-              <div className="feature-icon">
-                🏡
-              </div>
-
-              <div className="feature-number">
-                02
-              </div>
-
-              <h3>
-                Wide Selection
-              </h3>
-
-              <p>
-                Explore houses, apartments and plots available across
-                different locations.
-              </p>
-
-              <Link to="/properties">
-                Browse Listings →
-              </Link>
-            </div>
-
-            <div className="feature-card">
-              <div className="feature-icon">
-                🔐
-              </div>
-
-              <div className="feature-number">
-                03
-              </div>
-
-              <h3>
-                Secure Management
-              </h3>
-
-              <p>
-                Create an account and manage your own property listings
-                through your personal dashboard.
-              </p>
-
-              <Link to="/dashboard">
-                Open Dashboard →
-              </Link>
-            </div>
-
+            <Link to="/properties" className="modern-primary-btn">
+              Find Your Property <span>↗</span>
+            </Link>
           </div>
         </div>
       </section>
-
-      {/* HOW IT WORKS */}
-      <section className="section how-section">
-        <div className="container">
-
-          <div className="section-heading">
-            <p>HOW IT WORKS</p>
-
-            <h2>
-              Find Your Property in Three Simple Steps
-            </h2>
-          </div>
-
-          <div className="steps">
-
-            <div className="step-card">
-              <span>01</span>
-
-              <div className="step-icon">
-                🔎
-              </div>
-
-              <h3>
-                Explore
-              </h3>
-
-              <p>
-                Browse available properties and use search to find relevant
-                listings.
-              </p>
-            </div>
-
-            <div className="step-line"></div>
-
-            <div className="step-card">
-              <span>02</span>
-
-              <div className="step-icon">
-                📄
-              </div>
-
-              <h3>
-                View Details
-              </h3>
-
-              <p>
-                Open a property to view its location, price, features and
-                description.
-              </p>
-            </div>
-
-            <div className="step-line"></div>
-
-            <div className="step-card">
-              <span>03</span>
-
-              <div className="step-icon">
-                👤
-              </div>
-
-              <h3>
-                Manage
-              </h3>
-
-              <p>
-                Login to your account and manage your own property listings.
-              </p>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="section home-cta">
-        <div className="container">
-
-          <div className="home-cta-card">
-
-            <div className="cta-content">
-              <p className="hero-small">
-                READY TO GET STARTED?
-              </p>
-
-              <h2>
-                Your Next Property
-                <span> Could Be Here.</span>
-              </h2>
-
-              <p>
-                Explore available properties and discover a place that
-                matches what you're looking for.
-              </p>
-            </div>
-
-            <div className="cta-actions">
-              <Link
-                to="/properties"
-                className="primary-btn"
-              >
-                Explore Properties →
-              </Link>
-
-              <Link
-                to="/about"
-                className="cta-about-link"
-              >
-                Learn More About PropertyHub
-              </Link>
-            </div>
-
-          </div>
-
-        </div>
-      </section>
-
     </div>
   );
 }
